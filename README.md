@@ -219,3 +219,58 @@ test('TestActualizarDatosUsuario', async ({ page }) => {//CRITERIOS DE ACEPTACI�
 ### Historia: Votar por Autos
 
 **Archivo:** `tests/TestVotarPorAutos.spec.ts`
+
+**Pasos de TestVotoAutosSinAutenticar:**
+1. Navegar a la página principal.
+2. Dar click en la imagen boton de Lamborghini
+3. Seleccionar el carro por el  cual deseamos votar y clickear
+4. Verificar el mensaje de que necesitamos estar autenticados o registrados para poder votar
+
+```javascript
+test('TestVotoAutosSinAutenticar', async ({ page }) => {//CRITERIO DE ACEPTACIÓN 1
+  await page.goto('https://buggy.justtestit.org/');
+  await page.getByRole('link', { name: 'Lamborghini' }).click();
+  await page.getByRole('link', { name: 'Lamborghini Veneno' }).click();
+  await page.getByText('You need to be logged in to').click();
+  await page.getByRole('link', { name: 'Lamborghini' }).click();
+});
+```
+
+**Pasos de TestVotoAutosSinAutenticar:**
+1. Navegar a la página principal.
+2. Ingresar "Johan10" en el campo de Login.
+3. Ingresar "John777*" en el campo de Password.
+4. Hacer clicK en el botón imagen del logo de lamborghini para ir a la sección de votar
+5. Hacer clicK en el botón imagen del auto por el cual deseamos votar
+6. Verificar la cantidad de votos que tiene el auto
+7. Clickear en el espacio de comentario para escribir el comentario que deseemos
+8. Hacer click en el botón "Vote!"
+9. Verificar que la cantidad de votos incremento con nuestro voto y que sale el mensaje que certifica que votamos por el auto
+10. clickeamos la imagen para volver a la selección de autos
+11. seleccionamos el mismo auto por el cual votamos para verificar
+12. nuevamente vemos el mismo mensaje certificando que ya hemos votado
+
+```javascript
+//Nota importante: el siguiente test solo puedo ser ejecutado una vez ya que el mismo test se ejecuta desde cero,
+//por lo tanto al haber registado el voto, ya no apareceran los mismos campos que quedaron registrados la primera vez
+// y al ser ejecutado una segunda vez dara error porque no puede avanzar siguiendo los pasos.
+test('TestVotoAutos', async ({ page }) => {//CRITERIOS DE ACEPTACIÓN 2, 3 y 4
+  await page.goto('https://buggy.justtestit.org/');
+  await page.getByPlaceholder('Login').click();
+  await page.getByPlaceholder('Login').fill('Johan10');//Nombre de usuario para acceder
+  await page.locator('input[name="password"]').click();
+  await page.locator('input[name="password"]').fill('John777*');//Contraseña para acceder
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: 'Lamborghini' }).click();//Imagen para ir a la votación de autos 
+  await page.getByRole('link', { name: 'Lamborghini Veneno' }).click();//Seleccionamos imagen del tipo de auto por el cual vamos a votar
+  await page.getByText('797').click();//Numero de votos antes de nuestro voto
+  await page.getByLabel('Your Comment (optional)').click();
+  await page.getByLabel('Your Comment (optional)').fill('Pagina mas mala no puede ser');//comentario al momento de votar
+  await page.getByRole('button', { name: 'Vote!' }).click();//Votamos por el auto
+  await page.getByText('Thank you for your vote!').click();//mensaje que sale cuando votamos
+  await page.getByText('798').click();//Numero de votos despues de nuestro voto
+  await page.getByRole('link', { name: 'Lamborghini' }).click();//clickeamos la imagen para volver a la selección de autos
+  await page.getByRole('link', { name: 'Lamborghini Veneno' }).click();//seleccionamos el mismo auto para verificar
+  await page.getByText('Thank you for your vote!').click();//nuevamente vemos el mismo mensaje certificando que ya hemos votado
+});
+```
