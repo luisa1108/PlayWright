@@ -1,6 +1,7 @@
 <h1 align="center">Framework Playwright</h1>
 En este proyecto usamos el Framework Playwright dentro del programa Visual Studio Code para ejecutar pruebas automatizadas en la pagina "https://buggy.justtestit.org/". A continuación se presentaran los test.
 
+
 **Integrantes:**
 - Johan Javier Triana
 - Luisa Fernanda Tamayo Arias
