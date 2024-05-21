@@ -72,12 +72,20 @@ Asegúrate de agregar ambas rutas si ambas están presentes en tu sistema.
 
   ![image](https://github.com/luisa1108/PlayWright/assets/113460466/e552a6ba-48b1-47ba-a0a8-9ca0f0aafbad)
 
--Ahora usamos el comando ctrl + shift + P, se nos abrira una barra de busqueda y escribimos "Install PlayWright"
--se nos abrira un cuadro de chekeadores, seleccionamos los señalados en la siguiente imagen y le damos al boton ok
+- Ahora usamos el comando ctrl + shift + P, se nos abrira una barra de busqueda y escribimos "Install PlayWright"
+- Se nos abrira un cuadro de chekeadores, seleccionamos los señalados en la siguiente imagen y le damos al boton ok
+- Esperamos a que instale todas las dependencias y lo que sea necesario.
 
 ![Captura de pantalla (38)](https://github.com/luisa1108/PlayWright/assets/113460466/d21a4bd2-2ea4-420a-b4ee-9b16c8a32693)
 
 ## Ejecución de pruebas
+
+**Creación de archivos de Test:**
+1. Una vez todo instalado clickeamos en el simbolo que parece de laboratorio en la barra lateral izquierda tal como se muestra en la imagen
+2. abajo en la sub barra lateral izquierda en la sección de PlayWright presionamos donde dice "Record New"
+3. Se nos creara el archivo de test y podremos empezar
+
+![image](https://github.com/luisa1108/PlayWright/assets/113460466/c00f3fab-45bc-4638-a98b-7e5435d77976)
 
 ### Historia: Registro de Usuario
 
