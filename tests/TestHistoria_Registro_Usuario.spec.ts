@@ -17,9 +17,9 @@ test('TestRegistroUsuario', async ({ page }) => {//CRITERIOS DE ACEPTACIÓN 1 Y 
   //Despues de darle al boton de registrar nos sale el siguiente error:
   await page.getByText('InvalidPasswordException:').click();//Esto se debe a que realmente la clave debe de ser de minimo 8 caracteres + los requisitos mencionados
   await page.getByLabel('Password', { exact: true }).click();
-  await page.getByLabel('Password', { exact: true }).fill('Johan10*');//Cambio a clave de 8 caracteres + requisitos anteriores mencionados
+  await page.getByLabel('Password', { exact: true }).fill('John777*');//Cambio a clave de 8 caracteres + requisitos anteriores mencionados
   await page.getByLabel('Confirm Password').click();
-  await page.getByLabel('Confirm Password').fill('Johan10*');//Confirmación de contraseña cambiada 
+  await page.getByLabel('Confirm Password').fill('John777*');//Confirmación de contraseña cambiada 
   await page.getByRole('button', { name: 'Register' }).click();
   //Registro exitoso, sale el siguiente mensaje al darle click "await page.getByText('Registration is successful').click();"
 });
@@ -33,9 +33,9 @@ test('TestRegistrarMismoUsuario', async ({ page }) => {//CRITERIO DE ACEPTACIÓN
   await page.getByLabel('Last Name').click();
   await page.getByLabel('Last Name').fill('Triana');//Insertamos el mismo apellido
   await page.getByLabel('Password', { exact: true }).click();
-  await page.getByLabel('Password', { exact: true }).fill('Johan10*');//Insertamos la misma contraseña
+  await page.getByLabel('Password', { exact: true }).fill('John777*');//Insertamos la misma contraseña
   await page.getByLabel('Confirm Password').click();
-  await page.getByLabel('Confirm Password').fill('Johan10*');//Confirmación de contraseña 
+  await page.getByLabel('Confirm Password').fill('John777*');//Confirmación de contraseña 
   await page.getByRole('button', { name: 'Register' }).click();
   //Al darle click al boton registrar sale el siguiente mensaje: "await page.getByText('UsernameExistsException: User').click();"
 });
