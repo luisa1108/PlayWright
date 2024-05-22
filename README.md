@@ -246,7 +246,7 @@ test('TestVotoAutosSinAutenticar', async ({ page }) => {//CRITERIO DE ACEPTACIÓ
 });
 ```
 
-**Pasos de TestVotoAutosSinAutenticar:**
+**Pasos de TestVotoAutos:**
 1. Navegar a la página principal.
 2. Ingresar "Johan10" en el campo de Login.
 3. Ingresar "John777*" en el campo de Password.
